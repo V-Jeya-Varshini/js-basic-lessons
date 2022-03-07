@@ -1,2 +1,0 @@
-# js-basic-lessons
-Learning
