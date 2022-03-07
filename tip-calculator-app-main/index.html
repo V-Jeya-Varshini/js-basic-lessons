@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | Tip calculator app</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .attribution { font-size: 14px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="images/logo.svg" alt="">
+  </header>
+  
+  <main class='calc'>
+    <div class="input">
+      <label for="number">
+        <h4>Bill</h4>
+        <h4 class="amt-error error-mssg">Can't be less than Zero</h4>
+      </label>
+      <input type="number" class="amount" name='amount' min='0' placeholder="00.00">
+      <label for="number">
+        <h4>Select Tip %</h4>
+      </label>
+      <div class="tips">
+        <button type="number" class="tip unselected" name='tip' value=5>5%</button>
+        <button type="number" class="tip unselected" name='tip' value=10>10%</button>
+        <button type="number" class="tip unselected" name='tip' value=15>15%</button>
+        <button type="number" class="tip unselected" name='tip' value=25>25%</button>
+        <button type="number" class="tip unselected" name='tip' value=30>30%</button>
+        <input type="number" name="tip" class="custom" min="0" placeholder="Custom">
+      </div>
+
+      <label for="number">
+        <h4>Number of People</h4>
+        <h4 class="people-error error-mssg">Can't be Zero</h4>
+      </label>
+      <input type="number" class="people" name="people" value=1 min="1" placeholder="1">
+    </div>
+
+    <div class="result">
+      <div class="tip-amount">
+        <div class="text">
+          <h4>Tip Amount</h4>
+          <h5>/Person</h5>
+        </div>
+        <div class="value tip-amount-value">$0.00</div>
+      </div>
+
+      <div class="total">
+        <div class="text">
+          <h4>Total</h4>
+          <h5>/Person</h5>
+        </div>
+        <div class="value total-value">$0.00</div>
+      </div>
+      <button class="reset">Reset</button>      
+    </div>
+  </main>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#"> Jeya Varshini V</a>.
+  </div>
+
+  <script>
+    const amount = document.querySelector(".amount");
+    const tipBtn = document.querySelectorAll(".tip");
+    const custom = document.querySelector(".custom");
+    const people = document.querySelector(".people");
+    const perPerson = document.querySelector(".tip-amount-value");
+    const total = document.querySelector(".total-value");
+    const amtErr = document.querySelector(".amt-error");
+    const pplErr = document.querySelector(".people-error");
+    const reset = document.querySelector(".reset");
+
+    rst()
+    let tip = 0, amt = 0, ppl = 1;
+
+    tipBtn.forEach(btn =>{
+      btn.addEventListener("click", ()=>{
+        if(btn.classList.contains("selected")){
+            tip = 0;
+            btn.classList.remove("selected");
+            btn.classList.add("unselected");
+        }else{            
+            tipBtn.forEach(e =>{
+                e.classList.remove("selected");
+            })
+            tip = btn.value;
+            btn.classList.remove("unselected");
+            btn.classList.add("selected");
+        }
+        custom.value = "";
+        calc();
+      })
+    });
+
+    custom.addEventListener("input", ()=>{
+      if(custom.value >= 0)
+      {    
+        tipBtn.forEach(e =>{
+            e.classList.remove("selected");
+        })
+        tip = custom.value;
+        calc();
+      }
+    })
+
+    amount.addEventListener("input", ()=>{
+      amt = Number(amount.value);
+      if(amt <= 0 && amt != ""){
+        amount.classList.add("error");
+        amtErr.style.visibility = "visible";
+      }else{
+        amount.classList.remove("error");
+        amtErr.style.visibility = "hidden";
+        calc();        
+      }
+    })
+
+    people.addEventListener("input", ()=>{
+      ppl = people.value;
+      if(ppl <= 0 && ppl != ""){
+        people.classList.add("error");
+        pplErr.style.visibility = "visible";
+      }else{
+        people.classList.remove("error");
+        pplErr.style.visibility = "hidden";
+        calc();        
+      }
+    })
+
+    reset.addEventListener("click", rst);
+    function rst(){
+      amount.value = "";
+      people.value = "1";
+      custom.value = "";
+      perPerson.innerHTML = "$0.00";
+      total.innerHTML = "$0.00";
+
+      tipBtn.forEach(e =>{
+        e.classList.remove("selected");
+        e.classList.add("unselected");
+      })
+    }
+
+    function calc(){
+      if(amt >= 0 && ppl >= 1){
+        let totalTip = (tip*amt)/(100);
+        let totalAmt = amt + totalTip;
+        perPerson.innerHTML = `$${((totalTip)/(ppl)).toFixed(2)}`;
+        total.innerHTML = `$${((totalAmt)/(ppl)).toFixed(2)}`;
+      }
+    }
+  </script>
+</body>
+</html>

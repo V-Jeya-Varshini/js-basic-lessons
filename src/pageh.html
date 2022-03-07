@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var vGlobal='this is global';
+        function scopeFunction(){
+          alsoGlobal='This is also global variable';
+          var vNotGlobal= 'This is private andscoped to the functon';
+          function subFunction(){
+            console.log(`Inside subFuction:${vNotGlobal}`);
+            stillGlobal='No var keywordso this is global!';
+            var isPrivate='This is private to subFunction!';  
+        }
+          subFunction();
+        //   console.log(isPrivate);
+        }
+        console.log(vGlobal);
+        // console.log(alsoGlobal);
+        // console.log(stillGlobal);
+        scopeFunction();
+        console.log(alsoGlobal);
+        // console.log(vNotGlobal);
+        console.log(stillGlobal);
+    </script>
+</body>
+</html>
