@@ -1,2 +1,2 @@
-# HTML
+# JS-Learning
 Learning 
