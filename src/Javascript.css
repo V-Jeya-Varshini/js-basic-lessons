@@ -1,4 +1,4 @@
-* {
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -52,4 +52,4 @@
       color: rgba(245, 245, 245, 0.349);
       text-decoration: none;
     }
-    
+   
