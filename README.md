@@ -1,2 +1,2 @@
-# HTML
+# JS-Basics
 Learning 
