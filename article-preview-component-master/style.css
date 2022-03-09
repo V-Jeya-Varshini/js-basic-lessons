@@ -168,7 +168,6 @@ section .infoSide .profileShare{
         height: 5rem;
     }
     .profile{
-        /* justify-content: center; */
         flex-direction: column;
         margin: 0 10vw;
     }
