@@ -80,86 +80,58 @@
     margin-bottom: 50px;
   }
   
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: "Inter", sans-serif;
-  }
-  
-  .cover {
+  .cover-photo-inside{
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-      "top middle"
-      "bottom middle";
-    height: 100vh;
-    padding: 50px;
-    overflow: hidden;
-  }
-  
-  .cover-text {
-    background-image: url("./images/pattern-quotes.svg");
-    background-repeat: no-repeat;
-    background-position: 50% 30%;
-    display: grid;
-    align-items: flex-end;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    grid-area: top;
   }
   
-  .text {
-    font-size: 32px;
-    position: relative;
-    left: 200px;
-    color: hsl(240, 38%, 20%);
-    font-weight: 300;
+  .photo {
+    padding-top: 70px;
+    max-width: 480px;
+    width: 100%;
+    height: auto;
     transition: 0.5s;
   }
   
-  .text-firstpage {
-    grid-column: 1 / -1;
+  .photo1 {
     grid-row: 1 / -1;
-  }
-  
-  .text-nextpage{
     grid-column: 1 / -1;
+  }
+  
+  .photo2 {
     grid-row: 1 / -1;
+    grid-column: 1 / -1;
   }
   
-  .slide-left {
-    transform: translateX(-1000%);
+  .slider-cover{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
   
-  .slide-right {
-    transform: translateX(1000%);
-  }
-  
-  .text-heading {
-    padding-top: 30px;
-    font-weight: 700;
-    font-size: 0.7em;
-  }
-  
-  .text-heading-position {
-    color: hsl(240, 18%, 77%);
-    font-weight: 500;
-  }
-  
-  .cover-photo {
-    grid-area: middle;
-    background-image: url("./images/pattern-bg.svg");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: contain;
-    background-clip: content-box;
+  .slider-visible,
+  .slider-invisible {
+    width: 130px;
+    height: 60px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 50px;
+    border-radius: 2.5rem;
+    position: relative;
+    right: 100px;
+    bottom: 20px;
+    grid-row: 1 / -1;
+    grid-column: 1 / -1;
+  }
+  
+  .slider-visible {
+    background-color: white;
+  }
+  
+  .slider-invisible {
+    box-shadow: 0px 0px 120px 15px rgba(32, 32, 70, 0.69);
+    z-index: -1;
   }
   
   .slider-item-prev:hover {
