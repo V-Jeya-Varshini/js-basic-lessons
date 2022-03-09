@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | Time tracking dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .attribution { font-size: 14px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <div class="main_div">
+    <div class="person">
+        <div class="img_person">
+            <div class="img_jeremy_robson">
+                <img class="img_user" src="images/image-jeremy.png" alt="">
+            </div>
+
+            <div class="name_jeremy_robson">
+                <p class="report">Report for</p>
+                <h1 style="font-weight: 300;">Jeremy Robson</h1>
+            </div>
+
+        </div>
+
+        <div class="time_line">
+            <h5 class="time_line_daily" id="text_daily" onclick="dayFunction()">Daily</h5>
+            <h5 class="time_line_weekly" id="text_week" onclick="weakFunction()">Weekly</h5>
+            <h5 class="time_line_monthly" id="text_month" onclick="monthFunction()">Monthly</h5>
+        </div>
+
+    </div>
+
+    <div class="work">
+        <div class="img_work img_icon">
+            <img class="activity_img" src="images/icon-work.svg" alt="">
+        </div>
+
+        <div class="about_activity">
+            <div class="ellipsis_thing">
+                <img class="img_ellipsis" src="images/icon-ellipsis.svg" alt="">
+                <h4>Work</h4>
+            </div>
+
+            <div class="about_time">
+                <h1 class="time" id="work_time">5hrs</h1>
+                <p class="previous_time" id="work_previous_time">Yesterday - 7hrs</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="play">
+        <div class="img_play img_icon">
+            <img class="activity_img" src="images/icon-play.svg" alt="">
+        </div>
+
+        <div class="about_activity">
+
+            <div class="ellipsis_thing">
+                <img class="img_ellipsis" src="images/icon-ellipsis.svg" alt="">
+                <h4>Play</h4>
+            </div>
+
+            <div class="about_time">
+                <h1 class="time" id="play_time">1hr</h1>
+                <p class="previous_time" id="play_previous_time">Yesterday - 2hrs</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="study">
+        <div class="img_study img_icon">
+            <img class="activity_img" src="images/icon-study.svg" alt="">
+        </div>
+
+        <div class="about_activity">
+
+            <div class="ellipsis_thing">
+                <img class="img_ellipsis" src="images/icon-ellipsis.svg" alt="">
+                <h4>Study</h4>
+            </div>
+
+            <div class="about_time">
+                <h1 class="time" id="study_time">4hrs</h1>
+                <p class="previous_time" id="study_previous_time">Yesterday - 1hr</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <div class="img_exercise img_icon">
+            <img class="activity_img" src="images/icon-exercise.svg" alt="">
+        </div>
+
+        <div class="about_activity">
+            <div class="ellipsis_thing">
+                <img class="img_ellipsis" src="images/icon-ellipsis.svg" alt="">
+                <h4>Exercise</h4>
+            </div>
+
+            <div class="about_time">
+                <h1 class="time" id="exercise_time">3hrs</h1>
+                <p class="previous_time" id="exercise_previous_time">Yesterday - 1hr</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="social">
+        <div class="img_social img_icon">
+            <img class="activity_img" src="images/icon-social.svg" alt="">
+        </div>
+
+        <div class="about_activity">
+            <div class="ellipsis_thing">
+                <img class="img_ellipsis" src="images/icon-ellipsis.svg" alt="">
+                <h4>Social</h4>
+            </div>
+
+            <div class="about_time">
+                <h1 class="time" id="social_time">2hrs</h1>
+                <p class="previous_time" id="social_previous_time">Yesterday - 3hrs</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="self_care">
+        <div class="img_self_care img_icon">
+            <img class="activity_img" src="images/icon-self-care.svg" alt="">
+        </div>
+
+        <div class="about_activity">
+            <div class="ellipsis_thing">
+                <img class="img_ellipsis" src="images/icon-ellipsis.svg" alt="">
+                <h4>Self Care</h4>
+            </div>
+
+            <div class="about_time">
+                <h1 class="time" id="self_care_time">6hrs</h1>
+                <p class="previous_time" id="self_care_previous_time">Yesterday - 1hr</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">V. Jeya Varshini</a>.
+  </div>
+</body>
+</html>

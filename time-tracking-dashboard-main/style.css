@@ -1,0 +1,316 @@
+body {
+    color: white;
+    padding: 6rem 11rem;
+    font-family: 'Rubik', sans-serif;
+    background-color: hsl(226, 43%, 10%);
+}
+
+.main_div {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 50% 50%;
+    grid-gap: 0.938rem;
+    grid-template-areas: "person work play study" "person exercise social self_care";
+}
+
+.person {
+    grid-area: person;
+    height: 80%;
+    background-color: hsl(235, 46%, 20%);
+    border-radius: 0.813rem 0.813rem 0 0;
+}
+
+.work {
+    grid-area: work;
+    height: 80%;
+    background-color: hsl(15, 100%, 70%);
+    border-radius: 0.813rem 0.813rem 0 0;
+}
+
+.play {
+    grid-area: play;
+    height: 80%;
+    background-color: hsl(195, 74%, 62%);
+    border-radius: 0.813rem 0.813rem 0 0;
+}
+
+.study {
+    grid-area: study;
+    height: 80%;
+    background-color: hsl(348, 100%, 68%);
+    border-radius: 0.813rem 0.813rem 0 0;
+}
+
+.exercise {
+    grid-area: exercise;
+    height: 80%;
+    background-color: hsl(145, 58%, 55%);
+    border-radius: 0.813rem 0.813rem 0 0;
+}
+
+.social {
+    grid-area: social;
+    height: 80%;
+    background-color: hsl(264, 64%, 52%);
+    border-radius: 0.813rem 0.813rem 0 0;
+}
+
+.self_care {
+    grid-area: self_care;
+    height: 80%;
+    background-color: hsl(43, 84%, 65%);
+    border-radius: 0.813rem 0.813rem 0 0;
+}
+
+.self_care h4 {
+    grid-area: left_side;
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+.exercise h4 {
+    grid-area: left_side;
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+.social h4 {
+    grid-area: left_side;
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+.study h4 {
+    grid-area: left_side;
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+.play h4 {
+    grid-area: left_side;
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+.work h4 {
+    grid-area: left_side;
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+.ellipsis_thing {
+    display: grid;
+    grid-template-columns: 85% 15%;
+    grid-template-rows: 100%;
+    grid-template-areas: "left_side img_ellipsis";
+}
+
+.img_ellipsis {
+    grid-area: img_ellipsis;
+    padding-top: 1.875rem;
+}
+
+.img_ellipsis:hover {
+    filter: brightness(2);
+    cursor: pointer;
+    width: 1.375rem;
+}
+
+.img_icon {
+    text-align: right;
+    border-radius: 0.813rem 0.813rem 0 0;
+}
+
+.img_play {
+    background-color: hsl(195, 74%, 62%);
+}
+
+.img_work {
+    background-color: hsl(15, 100%, 70%);
+}
+
+.img_study {
+    background-color: hsl(348, 100%, 68%);
+}
+
+.img_exercise {
+    background-color: hsl(145, 58%, 55%);
+}
+
+.img_social {
+    background-color: hsl(264, 64%, 52%);
+}
+
+.img_self_care {
+    background-color: hsl(43, 84%, 65%);
+}
+
+.about_activity {
+    background-color: hsl(235, 46%, 20%);
+    border-radius: 0.813rem 0.813rem 0.813rem 0.813rem;
+    padding-left: 1rem;
+}
+
+.about_activity:hover {
+    background-color: hsl(235, 45%, 30%);
+    cursor: pointer;
+}
+
+.img_person {
+    background-color: hsl(246, 80%, 60%);
+    padding: 1rem 0 0.5rem 1rem;
+    border-radius: 0.813rem 0.813rem 0.813rem 0.813rem;
+    font-size: 1.25rem;
+}
+
+.time_line {
+    background-color: hsl(235, 46%, 20%);
+    padding: 1rem 0 1rem 1rem;
+    border-radius: 0 0 0.813rem 0.813rem;
+}
+
+.time {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin: 0;
+}
+
+.activity_img {
+    height: 3.125rem;
+    width: 3.125rem;
+}
+
+.previous_time {
+    padding-bottom: 1.25rem;
+    font-weight: 400;
+    font-size: 0.75rem;
+    color: hsl(236, 100%, 87%);
+}
+
+.img_user {
+    height: 5rem;
+    width: 5rem;
+    border: solid white 0.188rem;
+    border-radius: 100%;
+}
+
+.report {
+    padding-top: 0.625rem;
+    font-size: 0.875rem;
+    margin-bottom: 0;
+    color: hsl(236, 100%, 87%);
+}
+
+.time_line h5 {
+    font-weight: 400;
+}
+
+.time_line h5:hover {
+    color: white;
+}
+
+.time_line_daily {
+    color: white;
+    cursor: pointer;
+}
+
+.time_line_weekly {
+    color: hsl(235, 45%, 61%);
+    cursor: pointer;
+}
+
+.time_line_monthly {
+    color: hsl(235, 45%, 61%);
+    cursor: pointer;
+}
+
+.attribution {
+    padding-top: 1rem;
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 1px) {
+    body {
+        padding: 0;
+    }
+    .main_div {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 14.5% 14.5% 14.5% 14.5% 14.5% 14.5% 14.5%;
+        grid-gap: 0.5rem;
+        grid-template-areas: "person" "work" "play" "study" "exercise" "social" "self_care";
+    }
+    .about_time {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 100%;
+        grid-template-areas: "time previous_time";
+    }
+    .time {
+        grid-area: time;
+    }
+    .previous_time {
+        grid-area: previous_time;
+        text-align: right;
+        padding-right: 0.6rem;
+    }
+    .time_line {
+        display: grid;
+        grid-template-columns: 34% 33% 33%;
+        grid-template-rows: 100%;
+        grid-template-areas: "time_line_daily time_line_weekly time_line_monthly ";
+    }
+    .time_line_daily {
+        grid-area: time_line_daily;
+    }
+    .time_line_monthly {
+        grid-area: time_line_monthly;
+    }
+    .time_line_weekly {
+        grid-area: time_line_weekly;
+    }
+    .img_person {
+        display: grid;
+        font-size: 0.7rem;
+        padding: .3rem;
+        grid-template-columns: 35% 65%;
+        grid-template-rows: 100%;
+        grid-template-areas: "img_jeremy_robson name_jeremy_robson";
+    }
+    .img_jeremy_robson {
+        grid-area: img_jeremy_robson;
+        padding-top: 0.6rem;
+        padding-left: 0.4rem;
+    }
+    .name_jeremy_robson {
+        grid-area: name_jeremy_robson;
+        line-height: 0.8;
+    }
+    .img_user {
+        height: 3.5rem;
+        width: 3.5rem;
+    }
+    .attribution {
+        padding-top: 5rem;
+    }
+    .person {
+        max-width: 25rem;
+    }
+    .work {
+        max-width: 25rem;
+    }
+    .play {
+        max-width: 25rem;
+    }
+    .study {
+        max-width: 25rem;
+    }
+    .exercise {
+        max-width: 25rem;
+    }
+    .social {
+        max-width: 25rem;
+    }
+    .self_care {
+        max-width: 25rem;
+    }
+}
