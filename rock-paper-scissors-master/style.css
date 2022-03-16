@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -25,7 +30,6 @@ img {
     background-color: white;
 }
 
-/* Score Board */
 .score-board {
     display: inline-flex;
     width: 40%;
@@ -64,7 +68,6 @@ img {
     color: hsl(229, 25%, 31%);
 }
 
-/* Rock-Paper-Scissors */
 .triangle {
     background: url("./images/bg-triangle.svg");
     background-repeat: no-repeat;
@@ -103,14 +106,13 @@ img {
     margin: 0 70px 80px;
 }
 
-/* Rules button */
 .rules {
     position: fixed;
     bottom: 1em;
     right: 1em;
 }
 
-#myBtn {
+.rules button {
       color: white;
       background: none;
       border: solid 2px white;
@@ -120,7 +122,6 @@ img {
       cursor: pointer;
   }
 
-  /* Rules */
 .modal {
     display: none;
     position: fixed;
@@ -168,7 +169,6 @@ img {
     padding: 0;
 }
 
-/* Match board */
 .match-board {
     display: none;
 }
@@ -183,11 +183,13 @@ img {
     margin-top: 3em;
 }
 
-.your-pick, .house-pick {
+.your-pick, 
+.house-pick {
     font-size: 2em;
 }
 
-.your-pick-img, .house-pick-img {
+.your-pick-img, 
+.house-pick-img {
     margin-top: 2em;
     border-radius: 50%;
     width: 150px;
@@ -223,7 +225,6 @@ img {
     font-family: 'Barlow Semi Condensed', sans-serif;
 }
 
-/* Hidden */
 .result-mobile {
     display: none;
 }
@@ -251,125 +252,3 @@ img {
 .house-pick-img .scissors {
     display: none;
 }
-
-/* Mobile Version */
-@media only screen and (max-width: 650px) {
-    .score-board {
-        width: 80%;
-        margin-top: 20px;
-    }
-
-    .logo img {
-        width: 8em;
-        height: 5em;
-    }
-
-    .score {
-        padding: 0 30px;
-    }
-
-    .count p {
-        font-size: 2em;
-    }
-
-    .choose {
-        margin-bottom: 30px;
-    }
-
-    .choose p {
-        margin: 10px 0;
-    }
-
-    .triangle {
-        background-position: 50% 100%;
-    }
-
-    .triangle img {
-        width: 40px;
-        height: 40px;
-    }
-
-    .top-two {
-        display: flex;
-        width: 100%;
-    }
-
-    .top-two button {
-        margin: 0 auto 30px;
-    }
-
-    .rules {
-        margin-top: 30px;
-        position: static;
-    }
-
-    .modal-content {
-        width: 60%;
-    }
-
-    .result {
-        display: none;
-    }
-
-    #rm {
-        display: none;
-    }
-
-    .match-board {
-        align-items: center;
-    }
-
-    .match-flex {
-        width: 100%;
-        justify-content: space-around;
-        margin-top: 0px;
-    }
-    
-    .your-pick, .house-pick {
-        font-size: 1.2em;
-    }
-    
-    .your-pick-img, .house-pick-img {
-        text-align: center;
-        width: 100px;
-        height: 100px;
-    }
-
-    .your-pick-img {
-        margin-left: 15px;
-    }
-
-
-    .your-pick-img img {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .house-pick-img img {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .result {
-        padding-top: 2em;
-    }
-
-    .result-mobile {
-        padding-top: 20px;
-    }
-    
-    .result-mobile p {
-        font-size: 1.5em;
-        margin-bottom: 20px;
-        color: white;
-        font-family: 'Barlow Semi Condensed', sans-serif;
-        font-weight: bold;
-    }
-    
-    .result-mobile button {
-        background: white;
-    border-radius: 10px;
-    padding: 12px 40px;
-    }
-    
-  }

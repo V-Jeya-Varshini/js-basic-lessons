@@ -1,52 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap");
+
+:root {
+    --very-dark-grayish-blue: hsl(217, 19%, 35%);
+    --desaturated-dark-blue: hsl(214, 17%, 51%);
+    --grayish-blue: hsl(212, 23%, 69%);
+    --light-grayish-blue: hsl(210, 46%, 95%);
+}
+
 *{
     margin: 0;
     padding: 0;
 }
-body{
-    background-color: hsl(210, 46%, 95%);
+
+body {
+    background-color: var(--light-grayish-blue);
 }
 
-main{
+main {
     display: flex;
-    margin-top: 25vh;
     justify-content: center;
+    margin-top: 25vh;
 }
-section{
-    font-family: 'Manrope';
+
+section {
+    background-color: white;
     border-radius: 10px;
-    max-width: 50rem;
-    min-height: 17rem;
     display: flex;
     flex-direction: row;
-    background-color: white;
+    font-family: 'Manrope';
+    max-width: 50rem;
 }
 
-section .imageSide img{
-    max-width: 20rem;
-    min-height: 20rem;
+.image img {
+    border-radius: 10px 0px 0px 10px;
+    height: 100%;
+    width: 20rem;
 }
 
-section .infoSide{
+.content {
     padding: 2rem;
 }
 
-section .infoSide h1{
+.content h1 {
+    color: var(--desaturated-dark-blue);
     font-size: 1.5rem;
-    color: hsl(214, 17%, 51%);
     margin-bottom: 10px;
 }
 
-section .infoSide p{
-    color:hsl(212, 23%, 69%);
+.content p{
+    color:var(--grayish-blue);
     font-size: 15px;
 }
 
-section .infoSide .profileShare{
+.profile-share {
     display: flex;
     margin-top: 20px;
-
 }
-.profileShare .profile{
+
+.profile {
     display: flex;
     gap: 1rem;
     height: 4rem;
@@ -54,125 +65,72 @@ section .infoSide .profileShare{
     width: 4rem;
 }
 
-
-.profileShare .detail h2{
-    color: hsl(214, 17%, 51%);
-    width: 12rem;
-    font-size: 1rem;
+.details {
+    margin-top: 10px;
 }
 
-.profileShare .share{
-    background-color: hsl(210, 46%, 95%);
+.details h2 {
+    color: var(--desaturated-dark-blue);
+    font-size: 1rem;
+    width: 12rem;
+}
+
+.share {
+    background-color: var(--light-grayish-blue);
     border-radius: 2rem;
     cursor: pointer;
     height: 20px;
+    left: 18rem;
     padding: 15px;
     position: relative;
-    left: 18rem;
     top: 1rem;
     width: 20px;
 }
-.pimage{
+
+.michelle {
     border-radius: 2rem;
 }
-.active{
+
+.active {
     visibility: hidden;
     width: 0;
 }
 
-.active .rectangle {
+.rectangle {
+    background-color: var(--very-dark-grayish-blue);
     border-radius: 1rem;
-    background-color: hsl(217, 19%, 35%);
+    bottom: 5rem;
     color: aliceblue;
     display: flex;
+    height: 2rem;
+    left: 15rem;
     justify-content: space-between;
     padding: 0.7rem 3rem;
-    height: 2rem;
-    width: 13rem;
     position: relative;
-    left: 15rem;
-    bottom: 5rem;
+    width: 13rem;
 }
 
-.active .triangle{
-    width: 0;
-	height: 0;
+.triangle {
 	border-left: 15px solid transparent;
 	border-right: 15px solid transparent;
-	border-top: 20px solid hsl(217, 19%, 35%);
-    position: relative;
-    left: 19rem;
+	border-top: 20px solid var(--very-dark-grayish-blue);
     bottom: 5.3rem;
+	height: 0;
+    left: 19rem;
+    position: relative;
+    width: 0;
 }
 
-.active .rectangle img{
-    width: 2rem;
+.rectangle img{
     height: 2rem;
+    width: 2rem;
 }
 
-.active .rectangle span{
+.rectangle span{
     font-size: 1.5rem;
     font-weight: lighter;
 }
 
-.cliked{
-    background-color:rgb(72, 85, 106) !important ;
-    
-}
-
-@media screen and (max-width:750px){
-    main{
-        margin-top: 10vh;
-    }
-    section{
-        flex-direction: column;
-        max-width:80vw;
-        min-height: 70vh;
-
-    }
-    section .imageSide img{
-        max-width: 80vw;
-    }
-    section .infoSide p{
-        font-size: 1.2rem;
-    }
-    .active .triangle{
-        display: none;
-    }
-
-    .active .rectangle{
-        left: -4rem;
-        bottom: 4rem;
-        width: 50vw;
-        padding: 1.5rem 1rem;
-    }
-    
-    .share{
-        left: 200px;
-    }
-}
-
-@media screen and (max-width: 450px) {
-    main{
-        margin-top: 5vh;
-    }
-    .profileShare{
-        flex-direction: column;
-    }
-    .profileShare .share{
-        left: 150px;
-        top: 0;
-    }
-    .pimage{
-        width: 5rem;
-        height: 5rem;
-    }
-    .profile{
-        flex-direction: column;
-        margin: 0 10vw;
-    }
-    .active .rectangle{
-        left: 1rem;
-        bottom: 1rem;
-    }
+.clicked{
+    background-color:var(--very-dark-grayish-blue);
 }
