@@ -1,72 +1,134 @@
-let rotate = '180';
-let rotateMin = '180';
-let rotateHours = '180';
-let rotateDays = '180';
-function timer() {
-var countDownDate = new Date("Jan 5, 2022 15:37:25").getTime();
-
-// Update the count down every 1 second
-var x = setInterval(function() {
-
-  // Get today's date and time
-  var now = new Date().getTime();
-
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Display the result in the element with id="demo"
-  document.getElementById('days').innerHTML = days;
-  document.getElementById('hours').innerHTML = hours;
-  document.getElementById('minutes').innerHTML = minutes;
-  document.getElementById('seconds').innerHTML = seconds;
-
-  if(rotate == '180') {
-    document.getElementById('seconds-bottom').style.transform = `rotateX(${rotate}deg)`;
-    rotate = '0';
-  } else {
-    document.getElementById('seconds-bottom').style.transform = `rotateX(${rotate}deg)`;
-    rotate = '180';
-  }
-  if(seconds == 0) {
-    if(rotateMin == '180') {
-      document.getElementById('minutes-bottom').style.transform = `rotateX(${rotateMin}deg)`;
-      rotateMin = '0';
-    } else {
-      document.getElementById('minutes-bottom').style.transform = `rotateX(${rotateMin}deg)`;
-      rotateMin = '180';
-    }
-  }
-  if(minutes == 0) {
-    if(rotateHours == '180') {
-      document.getElementById('hours-bottom').style.transform = `rotateX(${rotateHours}deg)`;
-      rotateHours = '0';
-    } else {
-      document.getElementById('hours-bottom').style.transform = `rotateX(${rotateHours}deg)`;
-      rotateHours = '180';
-    }
-  }
-  if(hours == 0) {
-    if(rotateDays == '180') {
-      document.getElementById('days-bottom').style.transform = `rotateX(${rotateDays}deg)`;
-      rotateDays = '0';
-    } else {
-      document.getElementById('days-bottom').style.transform = `rotateX(${rotateDays}deg)`;
-      rotateDays = '180';
-    }
-  }
-  if (distance < 0) {
-    clearInterval(x);
-    
-  }
-}, 1000);
+function addHTMLAttributes (htmlElement, attributes) {
+  for (let attributeValue in attributes)
+    htmlElement[attributeValue] = attributes[attributeValue];
+  return htmlElement;
 }
 
-window.onload = () => {
-  timer();
+
+function addChildElements (htmlElement, children) {
+  children.forEach (child => {
+    typeof child === 'string'
+      ? htmlElement.appendChild (document.createTextNode (child))
+      : htmlElement.appendChild (child);
+  });
+  return htmlElement;
 }
+
+function createHTMLElement (
+  elementTagName, attributes, ...children
+  ) {
+  let htmlElement = document.createElement (elementTagName);
+      htmlElement = addHTMLAttributes (htmlElement, attributes);
+      htmlElement = addChildElements (htmlElement, children);
+  return htmlElement;
+}
+
+
+class FlipComponent {
+  constructor (label) {
+    this._top        = createHTMLElement ("b", {className: "card__top"}, "");
+    this._bottom     = createHTMLElement ("b", {className: "card__bottom"}, "");
+    this._backBottom = createHTMLElement ("b", {className: "card__bottom"}, "");
+    this._back       = createHTMLElement (
+                        "b"
+                      , {className: "card__back"}
+                      , this._backBottom );
+                      
+    this._flipCard   = createHTMLElement (
+                        "b"
+                      , {className: "flip__card card"}
+                      , this._top
+                      , this._bottom
+                      , this._back );
+
+    this._flipCardName = createHTMLElement ("div", {className:"flip__name"},label);
+
+    const div = createHTMLElement (
+                "div"
+              , {className: "flip__wrapper"}
+              , createHTMLElement ("div", {className: "left flip__dot"})
+              , createHTMLElement ("div", {className: "right flip__dot"})
+              , this._flipCard )
+    this._flipComponent = createHTMLElement (
+                          "div"
+                        , {className: "flip flip-animate", id: `${label}`}
+                        , div
+                        , this._flipCardName);
+    this._value = undefined;
+  }
+
+  get create () {
+    return this._flipComponent;
+  }
+
+  set update (value) {
+    const paddedValue  = `${value}`.padStart (2, "0"),
+          currentValue = `${this._value}`.padStart (2, "0");
+  
+    if (value !== this._value) {
+      
+      if (this._value >= 0) {
+        this._back.setAttribute ('data-value', currentValue);
+        this._bottom.setAttribute ('data-value', currentValue);
+      }
+
+      this._value         = value;
+      this._top.innerText = paddedValue;
+      this._backBottom.setAttribute ('data-value', paddedValue);
+  
+      this._flipComponent.classList.remove ('flip-animate');
+      this._flipComponent.offsetWidth;
+      this._flipComponent.classList.add ('flip-animate');
+    }
+  }
+}
+
+
+const countdown = document.querySelector (".main__countdown");
+
+const dailyFlipCard  = new FlipComponent ("Days");
+const hourlyFlipCard = new FlipComponent ("Hours");
+const minFlipCard    = new FlipComponent ("Minutes");
+const secFlipCard    = new FlipComponent ("Seconds");
+
+countdown.append (dailyFlipCard.create);
+countdown.append (hourlyFlipCard.create);
+countdown.append (minFlipCard.create);
+countdown.append (secFlipCard.create);
+
+const getSecondsFromIncrementalTime = (incrementalTime) =>
+  incrementalTime % 60;
+
+const getMinutesFromIncrementalTime = (incrementalTime) =>
+  Math.floor ((incrementalTime / 60) % 60);
+
+
+const getHoursFromIncrementalTime = (incrementalTime) => 
+  Math.floor ((incrementalTime / 3600) % 24);
+
+const getDaysFromIncrementalTime = (incrementalTime) =>  
+  Math.floor (incrementalTime / 86400);
+
+function updateCountDownDisplay (incrementalTime) {
+  dailyFlipCard.update  = getDaysFromIncrementalTime (incrementalTime);
+  hourlyFlipCard.update = getHoursFromIncrementalTime (incrementalTime);
+  minFlipCard.update    = getMinutesFromIncrementalTime (incrementalTime);
+  secFlipCard.update    = getSecondsFromIncrementalTime (incrementalTime);
+}
+
+let incrementalTime = (86400 * 8);
+const counter_1 = () => {
+  setTimeout (() => {
+    counter_2 ();
+  }, 1000);
+}
+
+const counter_2 = () => {
+  setTimeout (() => {
+    counter_1 ();
+    updateCountDownDisplay (incrementalTime);
+  }, 0);
+  return incrementalTime--;
+}
+
+counter_1 ()

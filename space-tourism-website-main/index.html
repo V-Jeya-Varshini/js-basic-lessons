@@ -3,25 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  
   <title>Frontend Mentor | Space tourism website</title>
+  <link href="themes/style.css" rel="stylesheet">
+  <link href="themes/home.css" rel="stylesheet">
 </head>
 <body>
-
-  00 Home
-  01 Destination
-  02 Crew
-  03 Technology
-
-  So, you want to travel to
-  Space
-  Let’s face it; if you want to go to space, you might as well genuinely go to 
-  outer space and not hover kind of on the edge of it. Well sit back, and relax 
-  because we’ll give you a truly out of this world experience!
-
-  Explore
-
+  <header>
+    <a href="index.html">
+       <img src="./starter-code/assets/shared/logo.svg" id="logo">
+    </a>
+    <div id="hr"></div>
+    <nav id="navbar-main">
+       <ul>
+          <li>
+             <a href="index.html" class="nav-text active">
+                <span>00</span> HOME
+             </a>
+          </li>
+          <li>
+             <a href="./destination.html" class="nav-text">
+                <span>01</span> DESTINATION
+             </a>
+          </li>
+          <li>
+             <a href="./crew.html" class="nav-text">
+                <span>02</span> CREW
+             </a>
+          </li>
+          <li>
+             <a href="./technology.html" class="nav-text">
+                <span>03</span> TECHNOLOGY
+             </a>
+          </li>
+       </ul>
+    </nav>
+    <button id="nav-toggle">
+       <img src="./starter-code/assets/shared/icon-hamburger.svg">
+    </button>
+ </header>
+ <main>
+    <section class="grid-cell">
+       <h5 class="heading-5">SO, YOU WANT TO TRAVEL TO</h5>
+       <h1 class="heading-1">SPACE</h1>
+       <p class="body-text">
+          Let’s face it; if you want to go to space, you might as well genuinely go to
+          outer space and not hover kind of on the edge of it. Well sit back, and relax
+          because we’ll give you a truly out of this world experience!
+       </p>
+    </section>
+    <button id="explore-btn">
+       <a href="./destination.html">
+          <h4 class="heading-4">EXPLORE</h4>
+       </a>
+    </button>
+ </main>
+ <script type="module" src="js/home.js"></script>
 </body>
 </html>
