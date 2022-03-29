@@ -5,7 +5,7 @@
 }
 
 body {
-  background-image: linear-gradient(to bottom right, rgba(233, 144, 225, 0.479), rgba(228, 228, 79, 0.788));
+  background-image: linear-gradient(to bottom right, rgba(228, 100, 217, 0.479), rgba(228, 228, 64, 0.788));
   background-repeat: no-repeat;
   width: 100%;
   height: 85vh;
@@ -35,7 +35,7 @@ select {
 
 td {
   appearance: none;
-  background-color: rgba(250, 250, 0, 0.658);
+  background-color: rgba(250, 250, 0, 0.466);
   border-radius: 7px;
   font-size: x-large;
   font-weight: 1000;
