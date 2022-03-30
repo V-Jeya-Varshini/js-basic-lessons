@@ -18,7 +18,7 @@ table{
     width: 100%;
     align-content: center;
     padding: 20px;
-    margin-left: 125px;
+    margin-left: 430px;
 }
 
 td{
@@ -29,7 +29,7 @@ td{
 
 div{
     background-color: hsla(34, 44%, 59%, 0.123);
-    width: 60%;
+    width: 30%;
     height: 80%;
     text-align: center;
     padding: 10px;
